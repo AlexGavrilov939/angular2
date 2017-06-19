@@ -1,0 +1,18 @@
+<p>
+  product-row works!
+  <span>{{counter.value}}</span>
+  <button (click)="increase()">Increase</button>
+  <button (click)="decrease()">Decrease</button>
+</p>
+
+<product-image [imageUrl]="productItem.imageUrl"></product-image>
+<div class="content">
+  <div class="header">{{ productItem.name }}</div>
+  <div class="meta">
+    <div class="product-sku">SKU #{{ productItem.sku }}</div>
+  </div>
+  <div class="description">
+    <product-department [product]="productItem"></product-department>
+  </div>
+</div>
+<price-display [price]="productItem.price"></price-display>
