@@ -1,0 +1,32 @@
+<h1>SKU form builder with Validators</h1>
+<div class="ui raised segment">
+  <h2 class="ui header">Demo Form: Sku with Builder</h2>
+  <form [formGroup]="myForm"
+        (ngSubmit)="onSubmit(myForm.value)"
+        class="ui form">
+
+    <div class="field"
+         [ngClass]="{'hidden' : true, 'error': !myForm.controls['sku'].valid && myForm.controls['sku'].touched}">Проверьте поле SKU</div>
+    <div class="field">
+      <label for="skuInput">SKU</label>
+      <input type="text"
+             id="skuInput"
+             placeholder="SKU"
+             [formControl]="myForm.controls['sku']">
+
+    </div>
+    <div class="field">
+      <label for="productName">Product name</label>
+      <input type="text"
+             id="productName"
+             placeholder="Product name"
+             [formControl]="myForm.controls['productName']"
+             [(ngModel)]="productName">
+
+    </div>
+    <button type="submit" class="ui button">Submit</button>
+  </form>
+</div>
+<div class="ui info message">
+  The product name is: {{productName}}
+</div>
