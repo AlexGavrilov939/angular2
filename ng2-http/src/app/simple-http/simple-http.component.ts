@@ -48,7 +48,7 @@ export class SimpleHttpComponent implements OnInit {
 
         headers.append('X-API-TOKEN', 'ng-book');
         opts.headers = headers;
-        
+
         this.http.get('http://jsonplaceholder.typicode.com/posts/1', opts)
             .subscribe((res: Response) => {
                 this.data = res.json();
