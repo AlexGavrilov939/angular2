@@ -1,0 +1,25 @@
+<h1>Spotify search</h1>
+<p>
+    <input type="text" #newquery
+           [value]="query"
+           (keydown.enter)="submit(newquery.value)"
+           placeholder="Поиск">
+    <button (click)="submit(newquery.value)">Search</button>
+</p>
+
+<!-- Search results -->
+<div class="row">
+    <div class="col-sm-6 col-md-4" *ngFor="let item of results">
+        <div class="thumbnail">
+            <h3>
+                <a [routerLink]="['/artists', t.artists[0].id]">{{ item.artists[0].name }}</a>
+            </h3>
+            <p>
+                <a [routerLink]="['/tracks', item.id]">{{ item.name }}</a>
+            </p>
+            <h4>
+                <a [routerLink]="['/albums', item.album.id]">{{ item.album.name }}</a>
+            </h4>
+        </div>
+    </div>
+</div>
